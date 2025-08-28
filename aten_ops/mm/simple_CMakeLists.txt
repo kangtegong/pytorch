@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.15)
+project(simple_mm_op)
+
+set(CMAKE_CXX_STANDARD 17)
+
+# Build simple standalone mm test
+add_executable(simple_mm_test simple_test.cpp)
+
+# Build library version
+add_library(simple_mm_op INTERFACE)
+target_include_directories(simple_mm_op INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+
+# Install headers
+install(FILES simple_mm.hpp DESTINATION include/aten_ops)
